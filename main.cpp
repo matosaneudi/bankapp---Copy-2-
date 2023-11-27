@@ -15,7 +15,7 @@ void run(userInput input1) {
     userInput userInputs;
     Calculate calc;
     
-    system("clear");  // Clear screen for Windows, change to system("clear") for Unix/linux systems.
+    system("cls");  // Clear screen for Windows, change to system("clear") for Unix/linux systems.
     input1.printMenu();
     
     // calls the printDetails function to output the calculation in the desired formatting.
