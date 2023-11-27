@@ -11,26 +11,25 @@
 
 using namespace std;
 
-int main () { 
+void run(userInput input1) {
     userInput userInputs;
     Calculate calc;
-    char userChoice;
-
     
+    system("clear");  // Clear screen for Windows, change to system("clear") for Unix/linux systems.
+    input1.printMenu();
+    
+    // calls the printDetails function to output the calculation in the desired formatting.
+    calc.printDetailsNoDeposit(input1.getInitialInvestment(),input1.getAnnualInterest(), input1.getNumOfYears());
+    calc.printDetailsWithDeposit(input1.getInitialInvestment(), input1.getMontlhyDeposit(), input1.getAnnualInterest(), input1.getNumOfYears());
+
+}
+int main () { 
+    userInput input1;
+    run(input1);
+    char userChoice = input1.userEnter();
     do {
-        system("cls");  // Clear screen for Windows, change to system("clear") for Unix-like systems
-        userInput input1;
-        input1.printMenu();
-
-        // calls the printDetails from the calculate.cpp 
-        calc.printDetailsNoDeposit(input1.getInitialInvestment(),input1.getAnnualInterest(), input1.getNumOfYears());
-        calc.printDetailsWithDeposit(input1.getInitialInvestment(), input1.getMontlhyDeposit(), input1.getAnnualInterest(), input1.getNumOfYears());
-
-        userChoice = input1.userEnter();
-        //userChoice = userInputs.userEnter();
-
         if (userChoice == 'Y') { 
-            continue;
+            run(input1);
         }
         
         else if (userChoice == 'N') {
@@ -39,6 +38,7 @@ int main () {
         
         else {
             cout << "Invalid input, please try again. ";
+            userChoice = input1.userEnter();
         }
     }
     while (userChoice != 'N');

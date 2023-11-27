@@ -55,7 +55,7 @@ void Calculate::printDetailsWithDeposit(double initial, double deposit, double i
 
         int k; 
 
-        for (k = 0; k < 12; k++) { //calculates the ammount witht the montly deposit. 
+        for (k = 0; k < 12; k++) { //calculates the ammount witht the monthly deposit. 
 
             totalInterest = (totalAmount + depositAmount) * ((interestAmount / 100) /12);
 
@@ -69,7 +69,7 @@ void Calculate::printDetailsWithDeposit(double initial, double deposit, double i
     }
 
     std::cout << std::endl; 
-    std::cout << std::endl << "Press any button to continue...."; //pauses the display and waits for user interaction.
+    std::cout << std::endl << "Press enter to continue...."; //pauses the display and waits for user interaction.
     cin.get();                                                      //recieves the user interaction such as a keystroke.
     system("cls");                                                //clears screen for next display.
 
