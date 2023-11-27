@@ -3,7 +3,7 @@
 class userInput {
 
     public:
-        //getters
+    //getters
         void printMenu();
         double getInitialInvestment();
         double getMontlhyDeposit();

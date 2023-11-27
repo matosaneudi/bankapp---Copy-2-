@@ -1,12 +1,11 @@
 #include <iostream>
 #include <iomanip>
-#include <conio.h>
 #include "userInput.h"
 #include <cctype>
 
 using namespace std;
 
-double userInput::getInitialInvestment() { 
+double userInput::getInitialInvestment() { //defined getter methods and to return to the desired variable.
     return initialInvestment;
 }
 
@@ -35,12 +34,11 @@ void userInput::printMenu() {
     cin >> annualInterest;
     cout << "Number Of Years: ";
     cin >> numOfYears;
-    cout << "Press any key to continue . . ." << endl;
+    cout << "Press enter to continue . . ." << endl;
     
     cin.get(); //waits for the user to press any key.
     system("cls"); // clears the console. if using linux or macOS replace "system("cls");" with "system("clear")".
 }
-
 
 char userInput::userEnter() { //prompts the user to continue making other calculations
     char userChar;
@@ -50,5 +48,4 @@ char userInput::userEnter() { //prompts the user to continue making other calcul
     userChar = toupper(userChar); // converts the user input to uppercase.
 
     return userChar;
-            
-}
+};

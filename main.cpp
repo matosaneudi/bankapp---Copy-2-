@@ -19,15 +19,12 @@ int main () {
     
     do {
         system("cls");  // Clear screen for Windows, change to system("clear") for Unix-like systems
-        //userInputs.printMenu(); // Display menu and get input
         userInput input1;
         input1.printMenu();
 
-        // Assuming you have methods to perform calculations
+        // calls the printDetails from the calculate.cpp 
         calc.printDetailsNoDeposit(input1.getInitialInvestment(),input1.getAnnualInterest(), input1.getNumOfYears());
         calc.printDetailsWithDeposit(input1.getInitialInvestment(), input1.getMontlhyDeposit(), input1.getAnnualInterest(), input1.getNumOfYears());
-
-        //userChoice = toupper(userInputs.userEnter()); // Convert user input to uppercase for consistent comparison
 
         userChoice = input1.userEnter();
         //userChoice = userInputs.userEnter();
@@ -48,4 +45,4 @@ int main () {
 
     return 0;
 
-}
+};

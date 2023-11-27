@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include "Calculate.h"
-#include <conio.h> 
+
 
 using namespace std;
 
@@ -11,26 +11,28 @@ void Calculate::printDetailsNoDeposit( double initial, double interest, int year
     interestAmount = interest; 
     numOfYears = years;
     
-    // print year with two tabs
+    // formats the menu with two tabs.
     std::cout << "         Balance and Interest without monthly Deposits          " << std::endl; 
-    std::cout << " ====================================================================  " << std::endl;
-    std::cout << " Year" << "       " << "Year End Balance" << "        " << "interest Earned" << std::endl;
-    std::cout << " --------------------------------------------------------------------- " << std::endl;
+    std::cout << "====================================================================  " << std::endl;
+    std::cout << " Year" << "       " << "     Year End Balance" << "        " << "    Year End Earned Interest" << std::endl;
+    std::cout << "--------------------------------------------------------------------- " << std::endl;
 
-    //calculations 
+    //performs calculations with no deposit.
     int i; 
-
+    
+    totalAmount = initial;
+    
     for (i = 0; i < numOfYears; i++) { //iterates over the years of the investemnt.
         
-        totalInterest = (totalAmount) * ((interestAmount / 100) /12); // calculates the interest on the ammount.
+        totalInterest = ((totalAmount) * (interestAmount / 100));
+
+        yearEndInterest += totalInterest;
 
         totalAmount = totalAmount + totalInterest;
-
-        std::cout << (i + 1) << "\t\t" << totalAmount << "\t\t" << totalInterest << std::endl;
+        
+        cout << setw(3) << (i + 1) << fixed << setprecision(2) << setw(20) << "$" << totalAmount << setw(22) << "$" << yearEndInterest << std::endl;  
     }
-
 }
-
 void Calculate::printDetailsWithDeposit(double initial, double deposit, double interest, int years) { 
     
     initialAmount = initial;
@@ -39,11 +41,11 @@ void Calculate::printDetailsWithDeposit(double initial, double deposit, double i
     numOfYears = years;
     
     std::cout << "         Balance and Interest with additonal monthly Deposits          " << std::endl; 
-    std::cout << " ====================================================================  " << std::endl;
-    std::cout << " Year" << "       " << "Year End Balance" << "        " << "interest Earned" << std::endl;
-    std::cout << " --------------------------------------------------------------------- " << std::endl;
+    std::cout << "====================================================================" << std::endl;
+    std::cout << " Year" << "       " << "     Year End Balance" << "        " << "    Year End Earned Interest" << std::endl;
+    std::cout << "---------------------------------------------------------------------" << std::endl;
 
-    //perform calculations here 
+    //perform calculations with montlhy deposit. 
     int i; 
     totalAmount = initial;
     
@@ -53,7 +55,7 @@ void Calculate::printDetailsWithDeposit(double initial, double deposit, double i
 
         int k; 
 
-        for (k = 0; k < 12; k++) { //calculates the ammunt witht the montly deposit. 
+        for (k = 0; k < 12; k++) { //calculates the ammount witht the montly deposit. 
 
             totalInterest = (totalAmount + depositAmount) * ((interestAmount / 100) /12);
 
@@ -62,7 +64,7 @@ void Calculate::printDetailsWithDeposit(double initial, double deposit, double i
             totalAmount = totalAmount + depositAmount + totalInterest;
         }
         
-        std::cout << (i + 1) << "\t\t" << totalAmount << "\t\t" << yearEndInterest << std::endl;        
+        cout << setw(3) << (i + 1) << fixed << setprecision(2) << setw(20) << "$" << totalAmount << setw(22) << "$" << yearEndInterest << std::endl;        
         
     }
 
@@ -71,4 +73,4 @@ void Calculate::printDetailsWithDeposit(double initial, double deposit, double i
     cin.get();                                                      //recieves the user interaction such as a keystroke.
     system("cls");                                                //clears screen for next display.
 
-}
+};
