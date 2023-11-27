@@ -6,8 +6,8 @@ class Calculate {
     
     public:
 
-        void printDetailsNoDeposit(int year, double yearEndBalance, double interestEarned);
-        void printDetailsWithDeposit(int year, double yearEndBalance, double interestEarned, double deposit);
+        void printDetailsNoDeposit(double initial, double interest, int years);
+        void printDetailsWithDeposit(double initial, double deposit, double interest, int years);
 
     private:
 

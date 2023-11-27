@@ -18,7 +18,7 @@ int main () {
 
     
     do {
-        //system("cls");  // Clear screen for Windows, change to system("clear") for Unix-like systems
+        system("cls");  // Clear screen for Windows, change to system("clear") for Unix-like systems
         //userInputs.printMenu(); // Display menu and get input
         userInput input1;
         input1.printMenu();
@@ -30,6 +30,7 @@ int main () {
         //userChoice = toupper(userInputs.userEnter()); // Convert user input to uppercase for consistent comparison
 
         userChoice = input1.userEnter();
+        //userChoice = userInputs.userEnter();
 
         if (userChoice == 'Y') { 
             continue;
